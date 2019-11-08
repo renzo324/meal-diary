@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-
-const List = (props) => (
-
-  <ul className="list-group container-fluid">
-    {
-      props.items.map( item => <li className="list-group-item"key={item.toString()}>{item}<button className="btn btn-info">PET!!</button></li>)
+class List extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            meals:[]
+        };
     }
-  </ul>
-);
-export default List;
+}

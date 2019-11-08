@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Button } from 'reactstrap';
 import List from './list';
 import './App.css';
 
