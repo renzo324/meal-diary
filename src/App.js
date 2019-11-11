@@ -1,37 +1,68 @@
 import React, { Component } from 'react';
-import List from './list';
+import Entry from './Entry/entry.js';
+import EntryForm from './EntryForm/entryform.js';
+import { FIREBASE_CONFIG } from './Config/config.js';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
-
+    this.addEntry = this.addEntry.bind(this);
+    if (!firebase.apps.length) {
+      try {
+          firebase.initializeApp(FIREBASE_CONFIG)
+      } catch (err) {
+        this.database = this.app.database().ref().child('entries');
+      }
+  }
+    
     this.state={
-      
-      items:[]
-    };
+      entries:[],
+    }
+    
   }
-  onChange = (event) => {
-    this.setState({ term: event.target.value });
+  componentWillMount(){
+    
+    const previousEntries = this.state.entry;
+    
+    //firebase dataSnapshot
+    this.database.on('child_added', snap =>{
+      previousEntries.push({
+        id: snap.key,
+        entryContent: snap.val().entryContent,
+      })
+    })
+      this.setState({
+        entries: previousEntries
+      })
+    
   }
-  onSubmit = (event) =>{
-    event.preventDefault()
-    this.setState({
-      term:'',
-      items:[...this.state.items, this.state.term]
-    });
+  addEntry(entry){
+   this.database.push().set({ entryContent: entry});
+  }
+  componentDidMount(){
+   
   }
   render() {
     return (
-      <div className="container-fluid">
-      <h1 className="header">List of Doggos</h1>  
-        <form className="App input-group mb-3" onSubmit={this.onSubmit}>
-          <input className="form-control" value={this.state.term} onChange={this.onChange} />
-          <div className="input-group-append">
-          <button className="btn btn-primary">Submit</button>
-          </div>
-        </form>
-        <List items={this.state.items} />
+      <div className="container-fluid diaryWrapper">
+        <div className="diaryHeader">
+          <h1 className="header">React+Firebase Meal Diary</h1>  
+        </div>
+       <div className="diaryBody">
+        {
+          this.state.entries.map((entries)=>{
+            return(
+              <Entry entryContent={entries.entryContent} entryId={entries.id} key={entries.id} />
+            )
+          })
+        }
+       </div>
+       <div className="addEntry">
+         <EntryForm addEntry={this.addEntry}/>
+       </div>
       </div>
     );
   }
