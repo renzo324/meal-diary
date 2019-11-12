@@ -14,7 +14,8 @@ class App extends Component {
       try {
           firebase.initializeApp(FIREBASE_CONFIG)
       } catch (err) {
-        this.database = this.app.database().ref().child('entries');
+        console.log(err);
+        // this.database = this.app.database().ref().child('entries');
       }
   }
     
