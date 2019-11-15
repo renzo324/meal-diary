@@ -1,1 +1,5 @@
 node_modules
+
+src/components/Firebase/context.js
+src/components/Firebase/firebase.js
+src/components/Firebase/index.js
