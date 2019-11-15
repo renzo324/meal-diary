@@ -1,8 +1,7 @@
 const initState = {
     entries:[
         {id:'1', title:'Lorem', content:'female husky'},
-        {id:'2', title:'Ipsum', content:'male husky'},
-        {id:'3', title:'Haji', content:'male mutt'}
+        {id:'2', title:'Ipsum', content:'male husky'}
     ]
 }
 const entryReducer = (state = initState, action) => {
