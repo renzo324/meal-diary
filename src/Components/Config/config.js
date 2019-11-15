@@ -1,6 +1,6 @@
 import app from 'firebase/app';
   // Your web app's Firebase configuration
- export const FIREBASE_CONFIG = {
+ const config = {
     apiKey: "AIzaSyDBNfqp6r8RdT7CLRbecghr_OMMjtZhCUo",
     authDomain: "diary-demo-4cc52.firebaseapp.com",
     databaseURL: "https://diary-demo-4cc52.firebaseio.com",
@@ -11,3 +11,9 @@ import app from 'firebase/app';
     measurementId: "G-WP2D8ZEDRY"
   };
  
+  class FIREBASE_CONFIG {
+    constructor() {
+      app.initializeApp(config);
+    }
+  }
+  export default FIREBASE_CONFIG;
