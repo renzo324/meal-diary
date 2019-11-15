@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addMeal } from '../../Store/Actions/entryActions';
 class AddMeal extends Component {
-    state = {
-        meal : '',
-        details : ''
+    state = { 
+        title : '',
+        content : ''
     }
     handleChange = (e) =>{
     this.setState({
@@ -12,7 +13,8 @@ class AddMeal extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.addMeal(this.state);
     }
     render() {
         return (
@@ -36,4 +38,9 @@ class AddMeal extends Component {
     }
 }
 
-export default AddMeal
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addEntry: (entry)=>dispatch(addMeal(entry))
+    }
+}
+export default connect(null, mapDispatchToProps)(AddMeal);

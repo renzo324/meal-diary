@@ -1,14 +1,15 @@
 import React from 'react';
 import MealSummary from './MealSummary';
-const MealList = () => {
+
+
+const MealList = ({entries}) => {
     return(
         <div className="meal-list section">
-            <MealSummary />
-            <MealSummary />
-            <MealSummary />
-            <MealSummary />
-            <MealSummary />
-            <MealSummary />
+            { entries && entries.map(entry =>{
+                return(
+                    <MealSummary entry={entry} key={entry.id} /> 
+                )
+            })}
         </div>
     )
 }
