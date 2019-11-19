@@ -8,7 +8,7 @@ import { AuthUserContext } from '../Session';
 const Navigation = () => (
   <nav>
     <div className="nav-wrapper grey darken-1">
-      <a href="#" className="brand-logo left"> Meal Diary </a>
+      <a href="#" className="brand-logo center"> Meal Diary </a>
     <AuthUserContext.Consumer>
       {authUser =>
         authUser ? <NavigationAuth /> : <NavigationNonAuth />
@@ -20,7 +20,7 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
  
- <ul className="right">
+ <ul className="right hide-on-med-and-down">
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
@@ -39,7 +39,7 @@ const NavigationAuth = () => (
   </ul>
 );
 const NavigationNonAuth = () => (
-  <ul className="right">
+  <ul className="right hide-on-med-and-down">
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
