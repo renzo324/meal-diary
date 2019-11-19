@@ -6,18 +6,21 @@ import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
 
 const Navigation = () => (
-  <div className="nav-wrapper grey darken-3">
+  <nav>
+    <div className="nav-wrapper grey darken-1">
+      <a href="#" className="brand-logo left"> Meal Diary </a>
     <AuthUserContext.Consumer>
       {authUser =>
         authUser ? <NavigationAuth /> : <NavigationNonAuth />
       }
     </AuthUserContext.Consumer>
   </div>
+  </nav>
 );
 
 const NavigationAuth = () => (
  
- <ul>
+ <ul className="right">
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
@@ -36,7 +39,7 @@ const NavigationAuth = () => (
   </ul>
 );
 const NavigationNonAuth = () => (
-  <ul>
+  <ul className="right">
     <li>
       <Link to={ROUTES.LANDING}>Landing</Link>
     </li>
