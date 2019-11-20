@@ -1,5 +1,5 @@
-// const mysql = require("mysql");
-var mysql      = require('mysql');
+const mysql = require("mysql");
+
 // connection
 const conn = mysql.createConnection({
   host: "localhost",
@@ -17,8 +17,6 @@ conn.connect(function(err) {
 
   // create database
   // eslint-disable-next-line no-shadow
-//   conn.query("CREATE DATABASE nodeSQL", function(err, result) {
-//     if (err) throw err;
-//     console.log(`database created!${result}`);
+//   conn.query("CREATE DATABASE nodeSQL", function(err, result) { if (err) throw err; console.log(`database created!${result}`)});
   });
 
