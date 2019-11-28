@@ -12,7 +12,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.0",
     "recompose": "^0.30.0",
-    "sql": "^0.78.0"
+    "sql": "^0.78.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
