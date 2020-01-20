@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
 This project was used to as the demo for "Connecting your react app to Firebase" code lab session during GDG baguio November 2019.
 
 ## Technologies used
